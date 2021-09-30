@@ -17,7 +17,7 @@
     `define RVG_OP        7'b0110011
     `define RVG_LUI       7'b0110111
     `define RVG_OP_32     7'b0111011
-    `define RVG_b       7'b0111111
+    `define RVG_64b       7'b0111111
     `define RVG_MADD      7'b1000011
     `define RVG_MSUB      7'b1000111
     `define RVG_NMSUB     7'b1001011
