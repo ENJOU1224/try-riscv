@@ -60,4 +60,46 @@
     `define FUNCT3_SB           3'b000
     `define FUNCT3_SH           3'b001
     `define FUNCT3_SW           3'b010
+
+    // ALUI Operation
+    `define FUNCT3_ADDI         3'b000
+    `define FUNCT3_SLTI         3'b010
+    `define FUNCT3_SLTIU        3'b011
+    `define FUNCT3_XORI         3'b100
+    `define FUNCT3_ORI          3'b110
+    `define FUNCT3_ANDI         3'b111
+    `define FUNCT3_SLLI         3'b001
+    `define FUNCT3_SRLI         3'b101
+    `define FUNCT3_SRAI         3'b101
+    `define FUNCT3_ADD          3'b000
+    `define FUNCT3_SUB          3'b000
+    `define FUNCT3_SLL          3'b001
+    `define FUNCT3_SLT          3'b010
+    `define FUCNT3_SLTU         3'b011
+    `define FUNCT3_XOR          3'b100
+    `define FUNCT3_SRL          3'b101
+    `define FUNCT3_SRA          3'b101
+    `define FUNCT3_OR           3'b110
+    `define FUNCT3_AND          3'b111
+
+    // 一些特别的
+    `define FUNCT3_FENCE        3'b000
+    `define FUNCT3_FENCE_TSO    3'b000
+    `define FUNCT3_PAUSE        3'b000
+    `define FUCNT3_ECALL        3'b000
+    `define FUNCT3_EBREAK       3'b000
+
+//-----{RV64I funct3}
+    `define FUNCT3_LWU          3'b110
+    `define FUNCT3_LD           3'b011
+    `define FUCNT3_SD           3'b011
+    `define FUNCT3_ADDIW        3'b000
+    `define FUNCT3_SLLIW        3'b001
+    `define FUNCT3_SRLIW        3'b101
+    `define FUNCT3_SRAIW        3'b101
+    `define FUNCT3_ADDW         3'b000
+    `define FUNCT3_SUBW         3'b000
+    `define FUNCT3_SLLW         3'b001
+    `define FUNCT3_SRLW         3'b101
+    `define FUCNT3_SRAW         3'b101
 `endif
