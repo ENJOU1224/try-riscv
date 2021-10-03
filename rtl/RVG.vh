@@ -75,7 +75,7 @@
     `define FUNCT3_SUB          3'b000
     `define FUNCT3_SLL          3'b001
     `define FUNCT3_SLT          3'b010
-    `define FUCNT3_SLTU         3'b011
+    `define FUNCT3_SLTU         3'b011
     `define FUNCT3_XOR          3'b100
     `define FUNCT3_SRL          3'b101
     `define FUNCT3_SRA          3'b101
@@ -84,10 +84,7 @@
 
     // 一些特别的
     `define FUNCT3_FENCE        3'b000
-    `define FUNCT3_FENCE_TSO    3'b000
-    `define FUNCT3_PAUSE        3'b000
-    `define FUCNT3_ECALL        3'b000
-    `define FUNCT3_EBREAK       3'b000
+    `define FUNCT3_PRIV         3'b000
 
 //-----{RV64I funct3}
     `define FUNCT3_LWU          3'b110
@@ -102,4 +99,13 @@
     `define FUNCT3_SLLW         3'b001
     `define FUNCT3_SRLW         3'b101
     `define FUCNT3_SRAW         3'b101
+
+//-----{FENCE FM}
+    `define FM_FENCE            4'b0000
+    `define FM_FENCE_TSO        4'b1000
+
+//-----{RV32I funct12}
+    `define FUNCT12_ECALL       12'b000000000000
+    `define FUNCT12_EBREAK      12'b000000000001
+
 `endif
