@@ -46,20 +46,39 @@ module decode (
 
 //-----{指令译码(Instruction Decode)}begin
 
-    // 译码列表
+//------------------------------实现指令列表(List of implemented instructions){begin}------------------------------//
+
+    //----------整数运算指令(Interger Computational Instructions)----------//
+
+    // 整型寄存器立即数间操作                               (Integer Register-Immediate Operations)
     wire Inst_ADDI  ,Inst_SLTI  ,Inst_SLTIU ,Inst_ANDI
-        ,Inst_ORI   ,Inst_XORI  ,Inst_SLLI  ,Inst_SRLI
-        ,Inst_SRAI  ,Inst_LUI   ,Inst_AUIPC ,Inst_ADD
-        ,Inst_SLT   ,Inst_SLTU  ,Inst_AND   ,Inst_OR
-        ,Inst_XOR   ,Inst_SLL   ,Inst_SRL   ,Inst_SUB
-        ,Inst_SRA   ,Inst_JAL   ,Inst_JALR  ,Inst_BEQ
-        ,Inst_BNE   ,Inst_BLR   ,Inst_BLTU  ,Inst_BGE
-        ,Inst_BGEU  ,Inst_LB    ,Inst_LH    ,Inst_LW
-        ,Inst_LBU   ,Inst_LHU   ,Inst_SB    ,Inst_SH
-        ,Inst_SW    ,Inst_FENCE ,Inst_FENCE_TSO
-        ,Inst_PAUSE ,Inst_ECALL ,Inst_EBREAK;
+        ,Inst_ORI   ,Inst_XORI  ;
+    wire Inst_SLLI  ,Inst_SRLI  ,Inst_SRAI  ,Inst_LUI
+        ,Inst_AUIPC ;
+
+    // 整型寄存器间操作                                     (Integer Register-Register Operations)
+    wire Inst_ADD   ,Inst_SLT   ,Inst_SLTU  ,Inst_AND
+        ,Inst_OR    ,Inst_XOR   ,Inst_SLL   ,Inst_SRL
+        ,Inst_SUB   ,Inst_SRA   ;
+
+    //----------控制权转移指令(Control Transfer Instructions)----------//
+
+    // 无条件跳转                                           (Unconditional Jumps)
+    wire Inst_JAL   ,Inst_JALR  ;
+
+    // 条件分支                                             (Conditional Branches)
+    wire Inst_BEQ   ,Inst_BNE   ,Inst_BLR   ,Inst_BLTU
+        ,Inst_BGE   ,Inst_BGEU  ;
+
+    //----------读写指令(Load and Store Instructions)----------//
+
+    wire Inst_LB    ,Inst_LH    ,Inst_LW    ,Inst_LBU
+        ,Inst_LHU   ,Inst_SB    ,Inst_SH    ,Inst_SW    ;
+
+    //----------内存序指令(Memory Ordering Instructions)----------//
+    wire Inst_FENCE ,Inst_FENCE_TSO ,Inst_PAUSE ,Inst_ECALL ,Inst_EBREAK;
     assign Inst_ADDI    = {{funct3 == `FUNCT3_ADDI  }&  {opcode == `OPCODE_OP_IMM   }};
-    
+
 
 
 endmodule
