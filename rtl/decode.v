@@ -145,8 +145,34 @@ module decode (
     //----------环境调用及断点(Environment Call and Breakpoints)----------//
     assign Inst_ECALL   = {{funct3 == `FUNCT3_PRIV  } & {opcode == `OPCODE_SYSTEM   } & {funct12 == `FUNCT12_ECALL  }};
     assign Inst_EBREAK  = {{funct3 == `FUNCT3_PRIV  } & {opcode == `OPCODE_SYSTEM   } & {funct12 == `FUNCT12_EBREAK }};
-    
 
+//------------------------------指令译码(Instruction Decode){begin}------------------------------//
 
+//------------------------------指令分类(Instruction classification){begin}------------------------------//
+
+    //----------根据指令结构类型分类(Classification according to the type of instruction structure)----------//
+    wire R_Type;
+    wire I_Type;
+    wire S_Type;
+    wire B_Type;
+    wire U_Type;
+    wire J_Type;
+
+    assign I_Type   = Inst_ADDI ,Inst_SLTI  ,Inst_SLTIU ,Inst_ANDI
+                    , Inst_ORI  ,Inst_XORI  ,Inst_SLLI  ,Inst_SRLI
+                    , Inst_SRAI ,Inst_LUI   ,Inst_AUIPC ,Inst_LW
+                    , Inst_LH   ,Inst_LB    ,Inst_LHU   ,Inst_LBU
+                    , Inst_ECALL,Inst_EBREAK;
+
+    assign R_Type   = Inst_ADD  ,Inst_SLT   ,Inst_SLTU  ,Inst_AND
+                    , Inst_OR   ,Inst_XOR   ,Inst_SLL   ,Inst_SRL
+                    , Inst_SUB  ,Inst_SRA   ;
+
+    assign J_Type   = Inst_JAL  ,Inst_JALR  ;
+
+    assign B_Type   = Inst_BEQ  ,Inst_BNE   ,Inst_BLT   ,Inst_BLTU
+                    , Inst_BGE  ,Inst_BGEU  ;
+
+    assign S_Type   = Inst_SW   ,Inst_SH    ,Inst_SB    ;
 
 endmodule
